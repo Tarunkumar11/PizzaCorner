@@ -12,10 +12,18 @@ Pasta_size = [
     ('Half',_('Half')),
     ('Full',_('Full')),
 ]
+
+pizza_categery = [
+    ('Bestsellers',_('Bestsellers')),
+    ('Classic',_('Classic')),
+    ('Favourite',_('Favourite')),
+    ('Delight',_('Delight')),
+]
 class Pizza_type(models.Model):
     name = models.CharField(max_length=50,blank=False)
     veg = models.BooleanField(default=False)
     size = models.CharField(_("Size"),choices=size,max_length=10)
+    categery = models.CharField(_("Categery"),choices=pizza_categery,max_length=20,default="Delight")
     price = models.IntegerField(blank=False)
     description = models.CharField(max_length=128)
 

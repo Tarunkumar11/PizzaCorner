@@ -4,7 +4,7 @@ from .models import Pizza_type,Pasta,Drinks
 
 class Pizza_typeAdmin(admin.ModelAdmin):
     model = Pizza_type
-    list_display = ['name', 'veg', 'size', 'price']
+    list_display = ['name', 'categery','veg', 'size', 'price']
 
 class PastaAdmin(admin.ModelAdmin):
     model = Pasta
