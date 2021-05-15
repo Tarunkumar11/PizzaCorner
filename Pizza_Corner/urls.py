@@ -19,6 +19,6 @@ from django.conf.urls import include,url
 
 
 urlpatterns = [
-    url(r'order/', include("pizza.urls", namespace='pizza')),
+    url(r'', include("pizza.urls", namespace='pizza')),
     path('admin/', admin.site.urls),
 ]

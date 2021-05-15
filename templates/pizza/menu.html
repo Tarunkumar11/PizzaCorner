@@ -1,0 +1,329 @@
+{% extends "pizza/base.html" %}
+{% load static %}
+{% block content %}
+<!-- <ul>
+    {% for pizza in object_list %}
+        <li>{{ pizza.name }}</li>
+    {% endfor %}    
+</ul> -->
+<style>
+    .box
+    {
+        margin-top: 10px;;
+    }
+    #Items{
+	position: relative;
+	margin-bottom: 12px;
+	width: 100%;
+	height: 50px;
+	background: #54544c;
+	border-radius: 3px;
+	font-size: 0;
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
+    display: flex;
+    align-items: center;
+}
+nav a{
+	font-size: 15px;
+	text-transform: uppercase;
+	color: white;
+	text-decoration: none;
+	line-height: 50px;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	text-align: center;
+}
+nav p{
+	font-size: 15px;
+	text-transform: uppercase;
+	color: white;
+	text-decoration: none;
+	line-height: 50px;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	text-align: center;
+}
+
+nav .animation{
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 0;
+	background: #d80a0a;
+	border-radius: 8px;
+	transition: all .5s ease 0s;
+}
+nav a:nth-child(1){
+	width: 100px;
+}
+nav .start-home, a:nth-child(1):hover~.animation{
+	width: 100px;
+	left: 0;
+}
+nav a:nth-child(2){
+	width: 110px;
+}
+nav a:nth-child(2):hover~.animation{
+	width: 110px;
+	left: 100px;
+}
+nav a:nth-child(3){
+	width: 100px;
+}
+nav a:nth-child(3):hover~.animation{
+	width: 100px;
+	left: 210px;
+}
+nav a:nth-child(4){
+	width: 160px;
+}
+
+nav a:nth-child(4):hover~.animation{
+	width: 100px;
+	left: 210px;
+}
+
+input[ type="checkbox"]
+{
+    position: relative;
+    height: 30px;
+    width: 70px;
+    -webkit-appearance: none;
+    background: #6c6c6c;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+    /* transition: 0.5s; */
+}
+
+input:checked[ type="checkbox"]
+{
+    background:#03a9f4;
+}
+
+input[ type="checkbox"]:before
+{
+    content:'';
+    position: absolute;
+    width:30px;
+    height:30px;
+    border-radius:15px;
+    top:0;
+    left:0;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    transition: 0.5s;
+}
+
+input:checked[ type="checkbox"]:before
+{
+    left:40px;
+}
+
+
+.size
+{
+    background: transparent;
+    width: 100%;
+    color: white;
+    margin-bottom: 8px;
+}
+
+option
+{
+    background: #121214;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+select
+{ 
+    text-align-last:center; 
+    border-radius: 5px;
+    text-align: center;
+}
+</style>
+
+
+<nav id="Items">
+    <a href="#" id='type_Deals'>Deals</a>
+    <a href="#" id='type_Pizza'>Pizza</a>
+    <a href="#" id='type_Sides'>Sides</a>
+    <a href="#" id='type_Drinks'>Drinks</a>
+    <div class="animation start-home"></div>
+    <input type="checkbox" name="Veg">
+</nav>
+
+<div class="container-wrap">
+    <div class="row no-gutters d-flex" id='Pizza'>
+            {% for product in object_list %}
+                {% if product.categary.name == "Pizza" %}
+                    <div class="col-md-5 col-lg-4 d-flex box" >
+                        <div class="services-wrap d-flex">
+                            <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
+                            <div class="text p-4">
+                                <h3>{{product.name}}</h3>
+                                <p>{{product.description}}</p>
+                                <p>{{product.size.name}}</p>
+                                <p>{{product.categary.name}}</p>
+                                <select class="size">
+                                    <option>Small</option>
+                                    <option>Medioun</option>
+                                    <option>Large</option>
+                                </select>
+                                <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+
+
+        <div class="row no-gutters d-flex" id='Drinks'>
+            {% for product in object_list %}
+                {% if product.categary.name == "Drinks" %}
+                    <div class="col-md-5 col-lg-4 d-flex box" >
+                        <div class="services-wrap d-flex">
+                            <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
+                            <div class="text p-4">
+                                <h3>{{product.name}}</h3>
+                                <p>{{product.description}}</p>
+                                <p>{{product.size.name}}</p>
+                                <p>{{product.categary.name}}</p>
+                                <select class="size">
+                                    <option>Small</option>
+                                    <option>Medioun</option>
+                                    <option>Large</option>
+                                </select>
+                                <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="row no-gutters d-flex" id='Sides'>
+            {% for product in object_list %}
+                {% if product.categary.name == "Sides" %}
+                    <div class="col-md-5 col-lg-4 d-flex box" >
+                        <div class="services-wrap d-flex">
+                            <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
+                            <div class="text p-4">
+                                <h3>{{product.name}}</h3>
+                                <p>{{product.description}}</p>
+                                <p>{{product.size.name}}</p>
+                                <p>{{product.categary.name}}</p>
+                                <select class="size">
+                                    <option>Small</option>
+                                    <option>Medioun</option>
+                                    <option>Large</option>
+                                </select>
+                                <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+
+        <!-- <div id='Sides'>
+            {% for product in object_list %}
+                {% if product.categary.name == "Sides" %}
+                    <div class="col-md-5 col-lg-4 d-flex box" >
+                        <div class="services-wrap d-flex">
+                            <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
+                            <div class="text p-4">
+                                <h3>{{product.name}}</h3>
+                                <p>{{product.description}}</p>
+                                <p>{{product.size.name}}</p>
+                                <p>{{product.categary.name}}</p>
+                                <select class="size">
+                                    <option>Small</option>
+                                    <option>Medioun</option>
+                                    <option>Large</option>
+                                </select>
+                                <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id='Drinks'>
+            {% for product in object_list %}
+                {% if product.categary.name == "Drinks" %}
+                    <div class="col-md-5 col-lg-4 d-flex box" >
+                        <div class="services-wrap d-flex">
+                            <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
+                            <div class="text p-4">
+                                <h3>{{product.name}}</h3>
+                                <p>{{product.description}}</p>
+                                <p>{{product.size.name}}</p>
+                                <p>{{product.categary.name}}</p>
+                                <select class="size">
+                                    <option>Small</option>
+                                    <option>Medioun</option>
+                                    <option>Large</option>
+                                </select>
+                                <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div> -->
+        
+    <!-- </div> -->
+</div>
+{% endblock %}
+
+{% block js_script %}
+<script>
+    $(document).ready(function()
+    {
+        sides = document.getElementById("Sides")
+        drinks = document.getElementById("Drinks")
+        sides.style.visibility = "hidden"
+        drinks.style.visibility = "hidden"
+        sides.style.height = "0px"
+        sides.style.height = "0px"
+    });
+
+    $("#type_Drinks").click(function()
+        {   
+            console.log("tarundsf")
+            pizza = document.getElementById("Pizza")
+            sides = document.getElementById("Sides")
+            drinks = document.getElementById("Drinks")
+            pizza.style.visibility = "hidden"
+            pizza.style.height = "0px"
+            sides.style.visibility = "hidden"
+            sides.style.height = "0px"
+            drinks.style.visibility = 'visible'
+
+        }
+    )
+
+    $("#type_Pizza").click(function()
+        {
+            pizza = document.getElementById("Pizza")
+            sides = document.getElementById("Sides")
+            drinks = document.getElementById("Drinks")
+            pizza.style.visibility = 'visible'
+            sides.style.visibility = "hidden"
+            drinks.style.visibility = "hidden"
+            sides.style.height = "0px"
+        }
+    )
+    
+</script>
+{% endblock %}

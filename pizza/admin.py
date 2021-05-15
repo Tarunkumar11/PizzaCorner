@@ -1,18 +1,27 @@
 from django.contrib import admin
-from .models import Pizza_type,Pasta,Drinks
+from .models import Product,Categary,ProductSize
 
 
-class Pizza_typeAdmin(admin.ModelAdmin):
-    model = Pizza_type
-    list_display = ['name', 'categery','veg', 'size', 'price']
+class ProductAdmin(admin.ModelAdmin):
+    model = Product
+    list_display = ['name','price','short_description', 'description']
 
-class PastaAdmin(admin.ModelAdmin):
-    model = Pasta
-    list_display = ['name', 'volume','price']
 
-class DrinksAdmin(admin.ModelAdmin):
-    list_display = ['name', 'volume','price']
+class CategaryAdmin(admin.ModelAdmin):
+    model = Categary
+    list_display = ['name']
 
-admin.site.register(Pizza_type,Pizza_typeAdmin)
-admin.site.register(Pasta,PastaAdmin)
-admin.site.register(Drinks,DrinksAdmin)
+class ProductSizeAdmin(admin.ModelAdmin):
+    model = ProductSize
+    list_display = ['name']
+
+# class PastaAdmin(admin.ModelAdmin):
+#     model = Pasta
+#     list_display = ['name', 'volume','price']
+
+# class DrinksAdmin(admin.ModelAdmin):
+#     list_display = ['name', 'volume','price']
+
+admin.site.register(Product,ProductAdmin)
+admin.site.register(Categary,CategaryAdmin)
+admin.site.register(ProductSize,ProductSizeAdmin)
