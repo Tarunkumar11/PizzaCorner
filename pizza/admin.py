@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product,Categary,ProductSize
+from .models import Product,Categary,ProductSize,Bestdeal
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -15,6 +15,15 @@ class ProductSizeAdmin(admin.ModelAdmin):
     model = ProductSize
     list_display = ['name']
 
+
+class BestdealAdmin(admin.ModelAdmin):
+    model = Bestdeal
+    list_display = ['name','price']
+
+
+
+
+
 # class PastaAdmin(admin.ModelAdmin):
 #     model = Pasta
 #     list_display = ['name', 'volume','price']
@@ -25,3 +34,4 @@ class ProductSizeAdmin(admin.ModelAdmin):
 admin.site.register(Product,ProductAdmin)
 admin.site.register(Categary,CategaryAdmin)
 admin.site.register(ProductSize,ProductSizeAdmin)
+admin.site.register(Bestdeal,BestdealAdmin)

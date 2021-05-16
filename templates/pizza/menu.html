@@ -160,143 +160,199 @@ select
 
 <div class="container-wrap">
     <div class="row no-gutters d-flex" id='Pizza'>
-            {% for product in object_list %}
-                {% if product.categary.name == "Pizza" %}
-                    <div class="col-md-5 col-lg-4 d-flex box" >
-                        <div class="services-wrap d-flex">
-                            <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
-                            <div class="text p-4">
-                                <h3>{{product.name}}</h3>
-                                <p>{{product.description}}</p>
-                                <p>{{product.size.name}}</p>
-                                <p>{{product.categary.name}}</p>
-                                <select class="size">
-                                    <option>Small</option>
-                                    <option>Medioun</option>
-                                    <option>Large</option>
-                                </select>
-                                <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-                            </div>
+        {% for product in object_list %}
+            {% if product.categary.name == "Pizza" %}
+                <div class="col-md-5 col-lg-4 d-flex box" >
+                    <div class="services-wrap d-flex">
+                        <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
+                        <div class="text p-4">
+                            <h3>{{product.name}}</h3>
+                            <p>{{product.description}}</p>
+                            <p>{{product.size.name}}</p>
+                            <p>{{product.categary.name}}</p>
+                            <select class="size">
+                                <option>Small</option>
+                                <option>Medioun</option>
+                                <option>Large</option>
+                            </select>
+                            <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
                         </div>
                     </div>
-                {% endif %}
-            {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+
+
+    <div class="row no-gutters d-flex" id='Drinks'>
+        {% for product in object_list %}
+            {% if product.categary.name == "Drinks" %}
+                <div class="col-md-5 col-lg-4 d-flex box" >
+                    <div class="services-wrap d-flex">
+                        <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
+                        <div class="text p-4">
+                            <h3>{{product.name}}</h3>
+                            <p>{{product.description}}</p>
+                            <p>{{product.size.name}}</p>
+                            <p>{{product.categary.name}}</p>
+                            <select class="size">
+                                <option>500 ml</option>
+                                <option>1 L</option>
+                                <option>2 L</option>
+                            </select>
+                            <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="row no-gutters d-flex" id='Sides'>
+        {% for product in object_list %}
+            {% if product.categary.name == "Sides" %}
+                <div class="col-md-5 col-lg-4 d-flex box" >
+                    <div class="services-wrap d-flex">
+                        <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
+                        <div class="text p-4">
+                            <h3>{{product.name}}</h3>
+                            <p>{{product.description}}</p>
+                            <p>{{product.size.name}}</p>
+                            <p>{{product.categary.name}}</p>
+                            <select class="size">
+                                <option>Half</option>
+                                <option>Full</option>
+                            </select>
+                            <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="row no-gutters d-flex" id='Deals'>
+        <h1>THis is greate </h1>
+        <div class="col-md-5 col-lg-4 d-flex box" >
+            <div class="services-wrap d-flex">
+                <a href#" class="img" style="background-image: url(/{{ product.image }});"></a>
+                <div class="text p-4">
+                    <h3>Prduct name</h3>
+                    <p>product.description</p>
+                    <p>product.size.name</p>
+                    <p>product.categary.name</p>
+                    <select class="size">
+                        <option>Small</option>
+                        <option>Medioun</option>
+                        <option>Large</option>
+                    </select>
+                    <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+                </div>
+            </div>
         </div>
-
-
-
-        <div class="row no-gutters d-flex" id='Drinks'>
-            {% for product in object_list %}
-                {% if product.categary.name == "Drinks" %}
-                    <div class="col-md-5 col-lg-4 d-flex box" >
-                        <div class="services-wrap d-flex">
-                            <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
-                            <div class="text p-4">
-                                <h3>{{product.name}}</h3>
-                                <p>{{product.description}}</p>
-                                <p>{{product.size.name}}</p>
-                                <p>{{product.categary.name}}</p>
-                                <select class="size">
-                                    <option>Small</option>
-                                    <option>Medioun</option>
-                                    <option>Large</option>
-                                </select>
-                                <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-
-        <div class="row no-gutters d-flex" id='Sides'>
-            {% for product in object_list %}
-                {% if product.categary.name == "Sides" %}
-                    <div class="col-md-5 col-lg-4 d-flex box" >
-                        <div class="services-wrap d-flex">
-                            <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
-                            <div class="text p-4">
-                                <h3>{{product.name}}</h3>
-                                <p>{{product.description}}</p>
-                                <p>{{product.size.name}}</p>
-                                <p>{{product.categary.name}}</p>
-                                <select class="size">
-                                    <option>Small</option>
-                                    <option>Medioun</option>
-                                    <option>Large</option>
-                                </select>
-                                <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-
-
-        <!-- <div id='Sides'>
-            {% for product in object_list %}
-                {% if product.categary.name == "Sides" %}
-                    <div class="col-md-5 col-lg-4 d-flex box" >
-                        <div class="services-wrap d-flex">
-                            <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
-                            <div class="text p-4">
-                                <h3>{{product.name}}</h3>
-                                <p>{{product.description}}</p>
-                                <p>{{product.size.name}}</p>
-                                <p>{{product.categary.name}}</p>
-                                <select class="size">
-                                    <option>Small</option>
-                                    <option>Medioun</option>
-                                    <option>Large</option>
-                                </select>
-                                <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-
-        <div id='Drinks'>
-            {% for product in object_list %}
-                {% if product.categary.name == "Drinks" %}
-                    <div class="col-md-5 col-lg-4 d-flex box" >
-                        <div class="services-wrap d-flex">
-                            <a href="#" class="img" style="background-image: url(/{{ product.image }});"></a>
-                            <div class="text p-4">
-                                <h3>{{product.name}}</h3>
-                                <p>{{product.description}}</p>
-                                <p>{{product.size.name}}</p>
-                                <p>{{product.categary.name}}</p>
-                                <select class="size">
-                                    <option>Small</option>
-                                    <option>Medioun</option>
-                                    <option>Large</option>
-                                </select>
-                                <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div> -->
-        
-    <!-- </div> -->
+    </div>
 </div>
 {% endblock %}
 
 {% block js_script %}
+
 <script>
     $(document).ready(function()
     {
+        console.log("*******************************88")
         sides = document.getElementById("Sides")
         drinks = document.getElementById("Drinks")
         sides.style.visibility = "hidden"
         drinks.style.visibility = "hidden"
         sides.style.height = "0px"
         sides.style.height = "0px"
+        console.log("taunsaini")
+
+        
     });
+
+    $('#type_Deals').click(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+                {
+                    url: "{% url 'pizza:deals_order' %}",
+                    type:'GET',
+                    data: {'name':'tarun saini'},
+                    success:function(response)
+                    {  
+                        console.log(response)
+                        var array = response['mybestdeals']
+                        let n = array.length;
+                        console.log("Length if the ",n,array[0])
+                        var obj = JSON.parse(response);
+                        var div1 = document.createElement('div');
+                        div1.innerHTML = 'Hi there!';
+                        div1.className = 'col-md-5 col-lg-4 d-flex box';
+
+                        var div2  = document.createElement('div')
+                        div2.className = 'services-wrap d-flex'
+
+                        var anchortag = document.createElement('a')
+                        anchortag.className = 'img'
+            
+
+                        var div3 = document.createElement('div');
+                        div3.className = 'text p-4';
+
+                        heading = document.createElement('h3')
+                        var node1 = document.createTextNode("Product Name");
+                        heading.appendChild(node1);
+
+                        p1 = document.createElement('p')
+                        var node2 = document.createTextNode("This is new.");
+                        p1.appendChild(node2);
+
+                        p2 = document.createElement('p')
+                        var node3 = document.createTextNode("This is new.");
+                        heading.appendChild(node3);
+
+                        p3 = document.createElement('p')
+                        p3.className = "price"
+
+                        span = document.createElement('span')
+                        span.textContent = "23 RU";
+
+                        btn = document.createElement('a')
+                        btn.className = 'ml-2 btn btn-white btn-outline-white'
+                        btn.textContent = "Order";
+
+
+                        element = document.getElementById('Deals')
+                        element.appendChild(div1);
+
+                        div1.appendChild(div2);
+                        div2.appendChild(anchortag);
+
+                        div2.appendChild(div3);
+
+                        div3.appendChild(heading);
+                        div3.appendChild(p1);
+                        div3.appendChild(p2);
+                        div3.appendChild(p3);
+
+                        p3.appendChild(span)
+                        p3.appendChild(btn)
+                        //anchortag.style.style.backgroundImage = "https://picsum.photos/300/300"
+
+                        
+                    },
+                    error: function (response) 
+                    {
+                        console.log(response)
+                    }
+
+                }
+            )
+        }
+        );
+    
 
     $("#type_Drinks").click(function()
         {   
@@ -325,5 +381,9 @@ select
         }
     )
     
+
+
+
+
 </script>
 {% endblock %}

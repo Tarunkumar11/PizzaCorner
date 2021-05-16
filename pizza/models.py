@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.enums import Choices
+from django.db.models.fields.related import create_many_to_many_intermediary_model
 from django.utils.translation import ugettext_lazy as _
 from account.models import User
 
@@ -114,4 +115,13 @@ class Cart(models.Model):
         return "Username {0} and Product {1}".format(self.user.name,self.user.name)
 
 
+class Bestdeal(models.Model):
+    name = models.CharField(verbose_name= "Deal Offer",max_length=100)
+    image = models.ImageField(upload_to='static/images/bestdeals', default='static/images/bg_1.png')
+    items = models.ManyToManyField(Product)
+    description = models.CharField(max_length=200, blank=True)
+    price = models.IntegerField(verbose_name="Price")
     
+    def __str__(self):
+        return self.name
+
