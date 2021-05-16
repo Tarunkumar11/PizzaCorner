@@ -125,3 +125,16 @@ class Bestdeal(models.Model):
     def __str__(self):
         return self.name
 
+class CustomerOrder(models.Model):
+    customer  = models.ForeignKey(User,on_delete=models.CASCADE)
+    items = models.ManyToManyField(Product)
+    date  = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(choices=product_status,max_length=20)
+
+    def get_total_price(self):
+        price = 0
+        for item in self.items.all():
+            price += item.price
+        return price
+
+

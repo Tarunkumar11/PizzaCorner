@@ -283,63 +283,76 @@ select
                     success:function(response)
                     {  
                         console.log(response)
-                        var array = response['mybestdeals']
-                        let n = array.length;
-                        console.log("Length if the ",n,array[0])
-                        var obj = JSON.parse(response);
-                        var div1 = document.createElement('div');
-                        div1.innerHTML = 'Hi there!';
-                        div1.className = 'col-md-5 col-lg-4 d-flex box';
+                        //var array = response['mybestdeals']
+                        var n = response.lenght;
+                        console.log("lenght of the ",n) 
+                        element = document.getElementById('Deals');
+                        response.forEach(myFunction);
 
-                        var div2  = document.createElement('div')
-                        div2.className = 'services-wrap d-flex'
+                        function myFunction(item, index)
+                        {   
+                            console.log(item)
 
-                        var anchortag = document.createElement('a')
-                        anchortag.className = 'img'
-            
+                            var div1 = document.createElement('div');
+                            div1.className = 'col-md-5 col-lg-4 d-flex box';
+                            var div2  = document.createElement('div')
+                            div2.className = 'services-wrap d-flex';
 
-                        var div3 = document.createElement('div');
-                        div3.className = 'text p-4';
+                            var anchortag = document.createElement('a');
+                            anchortag.className = 'img';
+                            anchortag.style.backgroundImage = "url(item['image'])";
+                            console.log(item['image']);
 
-                        heading = document.createElement('h3')
-                        var node1 = document.createTextNode("Product Name");
-                        heading.appendChild(node1);
+                            var div3 = document.createElement('div');
+                            div3.className = 'text p-4';
 
-                        p1 = document.createElement('p')
-                        var node2 = document.createTextNode("This is new.");
-                        p1.appendChild(node2);
+                            heading = document.createElement('h3')
+                            var node1 = document.createTextNode(item['name']);
+                            heading.appendChild(node1);
 
-                        p2 = document.createElement('p')
-                        var node3 = document.createTextNode("This is new.");
-                        heading.appendChild(node3);
+                            p1 = document.createElement('p')
+                            var node2 = document.createTextNode(item['description']);
+                            p1.appendChild(node2);
 
-                        p3 = document.createElement('p')
-                        p3.className = "price"
+                            p2 = document.createElement('p')
+                            var node3 = document.createTextNode("This is new.");
+                            heading.appendChild(node3);
 
-                        span = document.createElement('span')
-                        span.textContent = "23 RU";
+                            p3 = document.createElement('p')
+                            
+                            p3.className = "price"
+                            
+                            
 
-                        btn = document.createElement('a')
-                        btn.className = 'ml-2 btn btn-white btn-outline-white'
-                        btn.textContent = "Order";
+                            span = document.createElement('span')
+                            span.textContent = '₹ ' + item['price'];
+
+                            btn = document.createElement('a')
+                            btn.className = 'ml-2 btn btn-white btn-outline-white'
+                            btn.textContent = "Order";
 
 
-                        element = document.getElementById('Deals')
-                        element.appendChild(div1);
+                            
+                            element.appendChild(div1);
 
-                        div1.appendChild(div2);
-                        div2.appendChild(anchortag);
+                            div1.appendChild(div2);
+                            div2.appendChild(anchortag);
 
-                        div2.appendChild(div3);
+                            div2.appendChild(div3);
 
-                        div3.appendChild(heading);
-                        div3.appendChild(p1);
-                        div3.appendChild(p2);
-                        div3.appendChild(p3);
+                            div3.appendChild(heading);
+                            div3.appendChild(p1);
+                            div3.appendChild(p2);
+                            div3.appendChild(p3);
 
-                        p3.appendChild(span)
-                        p3.appendChild(btn)
-                        //anchortag.style.style.backgroundImage = "https://picsum.photos/300/300"
+                            p3.appendChild(span)
+                            p3.appendChild(btn)
+                            
+                        }
+
+
+                        
+                        
 
                         
                     },
