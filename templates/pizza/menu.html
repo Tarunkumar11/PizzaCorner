@@ -233,24 +233,7 @@ select
     </div>
 
     <div class="row no-gutters d-flex" id='Deals'>
-        <h1>THis is greate </h1>
-        <div class="col-md-5 col-lg-4 d-flex box" >
-            <div class="services-wrap d-flex">
-                <a href#" class="img" style="background-image: url(/{{ product.image }});"></a>
-                <div class="text p-4">
-                    <h3>Prduct name</h3>
-                    <p>product.description</p>
-                    <p>product.size.name</p>
-                    <p>product.categary.name</p>
-                    <select class="size">
-                        <option>Small</option>
-                        <option>Medioun</option>
-                        <option>Large</option>
-                    </select>
-                    <p class="price"><span>₹{{product.price}}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 {% endblock %}
@@ -261,10 +244,13 @@ select
     $(document).ready(function()
     {
         console.log("*******************************88")
+        deals = document.getElementById("Deals")
         sides = document.getElementById("Sides")
         drinks = document.getElementById("Drinks")
+        deals.style.visibility = "hidden"
         sides.style.visibility = "hidden"
         drinks.style.visibility = "hidden"
+        deals.style.height = "0px"
         sides.style.height = "0px"
         sides.style.height = "0px"
         console.log("taunsaini")
@@ -292,7 +278,8 @@ select
                         function myFunction(item, index)
                         {   
                             console.log(item)
-
+                            //item['image'] = item['image'].replace(  '/static/','')
+                            console.log(item['image'])
                             var div1 = document.createElement('div');
                             div1.className = 'col-md-5 col-lg-4 d-flex box';
                             var div2  = document.createElement('div')
@@ -300,7 +287,7 @@ select
 
                             var anchortag = document.createElement('a');
                             anchortag.className = 'img';
-                            anchortag.style.backgroundImage = "url(item['image'])";
+                            anchortag.style.backgroundImage = `url("${item.image}")`
                             console.log(item['image']);
 
                             var div3 = document.createElement('div');
@@ -350,11 +337,6 @@ select
                             
                         }
 
-
-                        
-                        
-
-                        
                     },
                     error: function (response) 
                     {
@@ -363,24 +345,43 @@ select
 
                 }
             )
+
+            deals = document.getElementById("Deals")
+            pizza = document.getElementById("Pizza")
+            sides = document.getElementById("Sides")
+            drinks = document.getElementById("Drinks")
+            deals.style.visibility = 'visible'
+            pizza.style.visibility = 'hidden'
+            sides.style.visibility = "hidden"
+            drinks.style.visibility = "hidden"
+            pizza.style.height = "0px"
+            sides.style.height = "0px"
+            drinks.style.height = "0px"
+
+
         }
         );
     
 
     $("#type_Drinks").click(function()
         {   
-            console.log("tarundsf")
+            deals = document.getElementById("Deals")
             pizza = document.getElementById("Pizza")
             sides = document.getElementById("Sides")
             drinks = document.getElementById("Drinks")
+            deals.style.visibility = "hidden"
             pizza.style.visibility = "hidden"
-            pizza.style.height = "0px"
             sides.style.visibility = "hidden"
-            sides.style.height = "0px"
             drinks.style.visibility = 'visible'
+            deals.style.height = "0px" 
+            pizza.style.height = "0px"
+            sides.style.height = "0px"
+                       
 
         }
     )
+
+    
 
     $("#type_Pizza").click(function()
         {
